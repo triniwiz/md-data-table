@@ -16,11 +16,15 @@ function mdTableRow($mdTable, $timeout) {
         return tableCtrl.selectedItems.indexOf(item) !== -1;
       };
       
-      scope.toggleRow = function (item, event) {
+      scope.toggleRow = function (event, index, item, items) {
         event.stopPropagation();
         
         if(scope.isDisabled()) {
           return;
+        }
+        
+        if(event.shiftKey) {
+          console.log('yes');
         }
         
         if(scope.isSelected(item)) {
